@@ -1,0 +1,11 @@
+<div class="flashCardContainer">
+    <div [ngClass]="isFlipped ? 'flipped' : ''" class="card" (click)="toggleFlip()">
+        <div class="front">
+            <p>{{question}}</p>
+        </div>
+        <div class="back">
+            <p>{{answer}}</p>
+        </div>
+    </div>
+</div>
+<!-- <button (click)="handleWithNext()">NEXT</button> -->
