@@ -7,6 +7,24 @@
     padding-top: 20px;
 }
 
+@media (max-width: 900px) {
+  .navWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+}
+
 a {
     color: white;
     text-decoration: inherit;
@@ -15,6 +33,12 @@ a {
     border-radius: 8px;
     padding: 15px;
     transition: 0.3s;
+  }
+
+  @media (max-width: 400px) {
+    a {
+      font-size: 22px;
+    }
   }
 
   a:hover {

@@ -40,6 +40,12 @@ h1 .right {
     font-size: 23px;
 }
 
+@media (max-width: 370px) {
+    .slogan {
+        font-size: 18px;
+    }
+}
+
 @keyframes animateHeader {
     30% {
       opacity: 0;

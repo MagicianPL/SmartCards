@@ -15,6 +15,31 @@
     font-size: 30px;
 }
 
+@media (max-width: 450px) {
+    .wrapper > div {
+        font-size: 24px;
+    }
+}
+
 .wrapper > div > * {
     text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.topInfo {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .topInfo {
+        display: block;
+    }
+
+    .leftInfo {
+        display: none;
+    }
 }

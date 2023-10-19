@@ -14,3 +14,28 @@
     color: white;
     background-color: #1F3A93;
 }
+
+@media (max-width: 550px) {
+    .wrapper {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .wrapper {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 340px) {
+    .wrapper p {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+
+    }
+}
+
