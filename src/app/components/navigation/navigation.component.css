@@ -19,3 +19,7 @@ a {
   a:hover {
     color: #2191FB;
   }
+
+  .active {
+    opacity: 0.7;
+  }

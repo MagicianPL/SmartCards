@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FlashcardsService } from './services/flashcards.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,5 @@ import { FlashcardsService } from './services/flashcards.service';
 })
 export class AppComponent {
 
-  constructor(private flashcardsService: FlashcardsService) {}
-
-  handleDraw() {
-    this.flashcardsService.getRandomFlashCard();
-  }
+  constructor() {}
 }

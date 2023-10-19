@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FlashcardsService } from '../../services/flashcards.service';
 import { Flashcard } from './models/flashcard.model';
-import { topicFlashcards } from './models/topicFlashcards.model';
 
 @Component({
   selector: 'app-flashcard',
@@ -16,8 +16,9 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   answer: string = "";
   getFlashcardSubscription: Subscription | null = null;
   isFlippedSubscription: Subscription | null = null;
+  category: string | null = "";
 
-  constructor(private flashcardsService: FlashcardsService) {}
+  constructor(private flashcardsService: FlashcardsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
@@ -33,7 +34,10 @@ export class FlashcardComponent implements OnInit, OnDestroy {
       this.isFlipped = value;
     })
 
-    this.flashcardsService.getRandomFlashCard();
+    this.route.paramMap
+    .subscribe((params: ParamMap) => this.category = params.get('category'));
+
+    this.flashcardsService.getChoosedTopicFlashcards(this.category || "");
   }
 
   toggleFlip(): void {
