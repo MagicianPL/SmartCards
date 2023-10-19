@@ -42,19 +42,19 @@ h1 .right {
 
 @media (max-width: 400px) {
     .slogan {
-        font-size: 18px!important;
+        font-size: 18px;
     }
 }
 
 @media (max-width: 300px) {
     .slogan {
-        font-size: 14px!important;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 253px) {
     .slogan {
-        font-size: 12px!important;
+        font-size: 12px;
     }
 }
 

@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: #2191FB;
+    background: rgb(33, 145, 251);
+    background: linear-gradient(45deg, rgba(33, 145, 251, 1) 17%, rgba(19, 193, 228, 1) 100%);
     min-height: 100vh;
     position: relative;
     padding-bottom: 60px;
