@@ -1,0 +1,16 @@
+:host {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    background-color: #1F3A93;
+}

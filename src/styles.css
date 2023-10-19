@@ -6,4 +6,7 @@
 
 body {
     background-color: #2191FB;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px;
 }

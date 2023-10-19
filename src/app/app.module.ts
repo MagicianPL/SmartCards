@@ -10,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MainPageComponent } from './pages/mainPage/main-page/main-page.component';
 import { InfoComponent } from './components/info/info.component';
 import { CategoryContentComponent } from './components/categoryContent/category-content/category-content.component';
+import { FooterComponent } from './components/footer/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CategoryContentComponent } from './components/categoryContent/category-
     NavigationComponent,
     MainPageComponent,
     InfoComponent,
-    CategoryContentComponent
+    CategoryContentComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
