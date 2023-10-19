@@ -30,8 +30,8 @@
     display: none;
 }
 
-.arrow,
-.rotate {
+fa-icon {
+    display: block;
     opacity: 0;
     transform: scale(0.3);
     animation: iconsAnimation 0.5s forwards;

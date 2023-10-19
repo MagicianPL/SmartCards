@@ -18,12 +18,14 @@
 @media (max-width: 550px) {
     .wrapper {
         justify-content: center!important;
+        color: black;
     }
 }
 
 @media (max-width: 400px) {
     .wrapper {
         font-size: 14px!important;
+        color: red;
     }
 }
 
@@ -35,6 +37,7 @@
         align-items: center!important;
         gap: 5px!important;
         text-align: center!important;
+        color: yellow;
 
     }
 }
