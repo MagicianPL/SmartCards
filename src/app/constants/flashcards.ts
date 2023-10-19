@@ -320,6 +320,15 @@ export const reactFlashcardsData = [
     new Flashcard("What are React portals?", "React portals allow you to render a component's content in a different part of the DOM tree, outside of its parent component, enabling more flexible rendering and modals."),
     new Flashcard("What is the purpose of the 'ErrorBoundary' component in React?", "The 'ErrorBoundary' component in React is used to catch and handle errors that occur during rendering or in lifecycle methods of its child components."),
     new Flashcard("What is the purpose of the 'PureComponent' in React?", "The 'PureComponent' in React is a base class that provides a performance optimization by automatically implementing a shallow comparison of props and state to prevent unnecessary re-renders."),
+    new Flashcard("Does React useState Hook update immediately?", "No. The process to update React state is asynchronous for performance reasons. To perform side effects after state has change, you must use the useEffect."),
+    new Flashcard("What is the StrictMode component and why would you use it?", "StrictMode is a component in React that performs additional checks and warnings to identify potential problems in your code. It helps enforce best practices and improve the overall quality of your application."),
+    new Flashcard("What are synthetic events in React?", "Synthetic events in React are a wrapper around native browser events. They provide a consistent interface for handling events across different browsers, ensuring compatibility and ease of use."),
+    new Flashcard("What is an event in React?", "In React, an event is a user interaction, like clicking a button or hovering over an element, that can be captured and handled using synthetic events."),
+    new Flashcard("What are synthetic events in React?", "Synthetic events in React are instances of the `SyntheticEvent` class that wrap native browser events, providing a consistent interface for event handling in React components."),
+    new Flashcard("List some of the cases when you should use Refs.", "Use refs in React when you need to manage focus, access DOM elements, integrate with third-party libraries, handle animations/transitions, or interact with child components."),
+    new Flashcard("What are controlled and uncontrolled components?", "Controlled components: Component state is controlled by React, value is in state and updated through event handlers. Uncontrolled: State is managed internally, value is accessed through the DOM using refs."),
+    new Flashcard("What can you do with HOC?", "HOC (Higher-Order Components) in React allow you to reuse component logic by wrapping components with additional functionality for code sharing and enhancing component features."),
+    new Flashcard("What are Pure Components?", "Pure Components in React automatically optimize rendering by performing shallow comparisons of props and state to prevent unnecessary re-renders, improving performance.")
 ];
 
 export const angularFlashcardsData = [
