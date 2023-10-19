@@ -42,19 +42,19 @@ h1 .right {
 
 @media (max-width: 370px) {
     .slogan {
-        font-size: 18px;
+        font-size: 18px!important;
     }
 }
 
 @media (max-width: 300px) {
     .slogan {
-        font-size: 14px;
+        font-size: 14px!important;
     }
 }
 
 @media (max-width: 253px) {
     .slogan {
-        font-size: 12px;
+        font-size: 12px!important;
     }
 }
 
@@ -79,26 +79,3 @@ h1 .right {
         transform: rotateY(360deg);
     }
   }
-
-/* @keyframes animateHeader {
-    30% {
-        opacity: 0;
-    }
-
-    70% {
-        opacity: 1;
-    }
-
-    80% {
-        transform: translateX(0);
-    }
-
-    90% {
-        transform: rotate(360deg);
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-} */
