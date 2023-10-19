@@ -38,7 +38,7 @@
 }
 
 @media (max-width: 900px) {
-    .arrow {
+    .rotationWrapper {
         transform: rotate(90deg);
     }
 

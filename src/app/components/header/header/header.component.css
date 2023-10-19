@@ -46,6 +46,18 @@ h1 .right {
     }
 }
 
+@media (max-width: 300px) {
+    .slogan {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 253px) {
+    .slogan {
+        font-size: 12px;
+    }
+}
+
 @keyframes animateHeader {
     30% {
       opacity: 0;
