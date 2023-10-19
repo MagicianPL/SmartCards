@@ -1,11 +1,12 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { javascriptFlashcardsData, reactFlashcardsData } from '../constants/flashcards';
+import { angularFlashcardsData, javascriptFlashcardsData, reactFlashcardsData } from '../constants/flashcards';
 import { Flashcard } from '../components/flashcard/models/flashcard.model';
 import { javascriptFlashcards } from '../components/flashcard/models/javascriptFlashcards';
 import { reactFlashcards } from '../components/flashcard/models/reactFlashcards';
 import { topicFlashcards } from '../components/flashcard/models/topicFlashcards.model';
 import { Router } from '@angular/router';
+import { angularFlashcards } from '../components/flashcard/models/angularFlashcards';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ export class FlashcardsService implements OnInit {
       }
       case "react": {
         this.choosedTopicFlashcards = new reactFlashcards(reactFlashcardsData);
+        break;
+      }
+      case "angular": {
+        this.choosedTopicFlashcards = new angularFlashcards(angularFlashcardsData);
         break;
       }
       default: {
