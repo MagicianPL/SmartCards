@@ -24,8 +24,14 @@
 
 @media (max-width: 400px) {
     .wrapper {
-        font-size: 14px!important;
+        font-size: 12px!important;
         color: red;
+        display: flex!important;
+        flex-direction: column!important;
+        justify-content: center!important;
+        align-items: center!important;
+        gap: 5px!important;
+        text-align: center!important;
     }
 }
 
