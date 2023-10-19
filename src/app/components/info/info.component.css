@@ -30,6 +30,13 @@
     display: none;
 }
 
+.arrow,
+.rotate {
+    opacity: 0;
+    transform: scale(0.3);
+    animation: iconsAnimation 0.5s forwards;
+}
+
 @media (max-width: 900px) {
     .arrow {
         transform: rotate(90deg);
@@ -41,5 +48,15 @@
 
     .leftInfo {
         display: none;
+    }
+}
+
+@keyframes iconsAnimation {
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }

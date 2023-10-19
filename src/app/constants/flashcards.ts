@@ -81,7 +81,7 @@ export const javascriptFlashcardsData = [
     new Flashcard("What is the purpose of the 'new' keyword in JavaScript?", "The 'new' keyword is used to create an instance of an object or to invoke a constructor function."),
     new Flashcard("What is hoisting in JavaScript?", "Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their respective scopes during the compilation phase."),
     new Flashcard("What is the purpose of the 'NaN' value in JavaScript?", "'NaN' stands for 'Not-a-Number' and represents an invalid or unrepresentable value in JavaScript."),
-    new Flashcard("What is the difference between 'let' and 'var' in JavaScript?", "'let' is block-scoped, while 'var' is function-scoped. 'let' allows redeclaration in the same block, while 'var' does not."),
+    new Flashcard("What is the difference between 'let' and 'var' in JavaScript?", "`let` is block-scoped, while `var` is function-scoped. `let` does not allow redeclaration in the same block, while `var` does not cause a syntax error but does not actually redeclare the variable."),
     new Flashcard("What is the purpose of the 'async' and 'await' keywords in JavaScript?", "The 'async' keyword is used to define an asynchronous function, and the 'await' keyword is used to pause the execution of an asynchronous function until a promise is fulfilled or rejected."),
     new Flashcard("What is the purpose of the 'try-catch' statement in JavaScript?", "The 'try-catch' statement allows you to catch and handle exceptions that occur within a block of code."),
     new Flashcard("What is the difference between 'var', 'let', and 'const' in JavaScript?", "'var' is function-scoped, 'let' and 'const' are block-scoped. 'var' allows redeclaration in the same scope, 'let' allows reassignment, and 'const' does not allow reassignment."),
@@ -185,7 +185,7 @@ export const javascriptFlashcardsData = [
     new Flashcard("Can you declare a constant variable with let or var in JavaScript?", "No, constant variables can only be declared with const."),
     new Flashcard("What is the difference between var and let in terms of hoisting?", "Variable declarations with var are hoisted to the top of their containing scope, while let declarations are not hoisted."),
     new Flashcard("What is the difference between var and const in terms of reassignment?", "Variables declared with var can be reassigned, while variables declared with const cannot be reassigned."),
-    new Flashcard("What is the difference between let and const in terms of reassignment?", "Both let and const allow reassignment, but const variables cannot be redeclared."),
+    new Flashcard("What is the difference between let and const in terms of reassignment?", "Only let allows us to reassign different value."),
     new Flashcard("What is the difference between var and const in terms of initialization?", "Variables declared with var are automatically initialized with a value of undefined, while const variables must be initialized at the time of declaration."),
 
     // Closures
