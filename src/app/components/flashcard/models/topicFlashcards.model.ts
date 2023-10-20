@@ -12,6 +12,10 @@ export class topicFlashcards {
     }
 
     getRandomFlashcard(): Flashcard {
+        if (this.flashcards.length === 1) {
+            return this.flashcards[0];
+        }
+
         const randomIndex = Math.floor(Math.random() * this.flashcards.length);
         return this.flashcards[randomIndex];
     }

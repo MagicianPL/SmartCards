@@ -50,6 +50,21 @@ export class FavoritesService {
     this.favoritesUpdated.next(this.favoritesFlashcards);
   }
 
+  removeFlashcardFromFavorites(flashcard: Flashcard | null) {
+    console.log('removeFlashcardFromFavorites')
+    this.flashcardsService.isFlashcardFavorite = false;
+    if (flashcard === null) {
+      return;
+    }
+    const existingFavorites = this.getFavoritesFromLocalStrorage();
+    const index = existingFavorites.findIndex((card: any) => card.question === flashcard.getQuestion() && card.answer === flashcard.getAnswer());
+    if (index > -1) {
+      this.favoritesFlashcards.splice(index, 1);
+      this.favoritesUpdated.next(this.favoritesFlashcards);
+      this.setFavoritesToLocalStorage(this.favoritesFlashcards);
+    }
+  }
+
   flashcardIsFavoriteChecking(flashcard: Flashcard): boolean {
     const question = flashcard.getQuestion();
     console.log('question', question)

@@ -19,3 +19,26 @@ button {
 button:hover {
     color: #2191FB;
 }
+
+.favBtn {
+    padding: 0;
+    border-radius: 0;
+    background-color: unset;
+    color: rgb(255, 252, 252);
+    transition: 0.3s;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    margin: 0 20px 20px auto;
+}
+
+.filled {
+    color: #1F3A93;
+}
+
+@media (max-width: 600px) {
+    .innerWrapper {
+        width: 100%;
+    }
+}

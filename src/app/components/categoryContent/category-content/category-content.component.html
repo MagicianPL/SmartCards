@@ -1,5 +1,10 @@
 <div class="wrapper">
-    <button (click)="handleAddToFav()">{{isFlashcardFavorite ? 'ADDED' : 'ADD TO FAV'}}</button>
-    <app-flashcard></app-flashcard>
+    <div class="innerWrapper">
+        <button class="favBtn" *ngIf="!isFlashcardFavorite" (click)="handleAddToFav()"><i
+                class="fa-regular fa-heart"></i></button>
+        <button class="favBtn filled" *ngIf="isFlashcardFavorite" (click)="handleRemoveFav()"><i
+                class="fa-solid fa-heart"></i></button>
+        <app-flashcard></app-flashcard>
+    </div>
     <button (click)="handleDraw()">DRAW</button>
 </div>

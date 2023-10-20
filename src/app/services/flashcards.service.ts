@@ -19,6 +19,7 @@ export class FlashcardsService {
   private javascriptFlashcards = new javascriptFlashcards(javascriptFlashcardsData);
   private reactFlashcards = new reactFlashcards(reactFlashcardsData);
   choosedTopicFlashcards: topicFlashcards;
+  currentRandomFlashcard: Flashcard | null = null;
   isFlashcardFavorite = false;
   getFlashcard = new Subject<Flashcard>();
   flippedFlashcard = new Subject<boolean>();
@@ -74,7 +75,13 @@ export class FlashcardsService {
 
   getRandomFlashCard() {
     console.log('getRandomFlashCard from base service')
-    const randomFlashcard = this.choosedTopicFlashcards.getRandomFlashcard();
+    let randomFlashcard: Flashcard;
+    //It prevents to draw same flashcard
+    do {
+      randomFlashcard = this.choosedTopicFlashcards.getRandomFlashcard();
+    } while (this.currentRandomFlashcard && this.currentRandomFlashcard.getQuestion() === randomFlashcard.getQuestion());
+
+    this.currentRandomFlashcard = randomFlashcard;
     if (this.flashcardIsFlipped) {
       this.flashcardIsFlipped = false;
       this.flippedFlashcard.next(this.flashcardIsFlipped);

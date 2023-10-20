@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { FlashcardsService } from 'src/app/services/flashcards.service';
@@ -8,7 +8,7 @@ import { FlashcardsService } from 'src/app/services/flashcards.service';
   templateUrl: './category-content.component.html',
   styleUrls: ['./category-content.component.css']
 })
-export class CategoryContentComponent implements OnInit, OnDestroy {
+export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestroy {
   isFlashcardFavorite = false;
   favoritesUpdatedSubscription: Subscription | null = null;
   favIsUpdatedSub: Subscription | null = null;
@@ -23,7 +23,7 @@ export class CategoryContentComponent implements OnInit, OnDestroy {
       this.isFlashcardFavorite = this.flashcardsService.isFlashcardFavorite;
     })
 
-    this.flashcardsService.isFlashcardFavoriteUpdate
+    this.favIsUpdatedSub = this.flashcardsService.isFlashcardFavoriteUpdate
     .subscribe((value: boolean) => {
       this.isFlashcardFavorite = value;
     })
@@ -39,6 +39,12 @@ export class CategoryContentComponent implements OnInit, OnDestroy {
 
   handleAddToFav() {
     this.favService.addToFavoriteClicked.next("button click");
+  }
+
+  handleRemoveFav() {
+    this.favService.removeFlashcardFromFavorites(
+      this.flashcardsService.currentRandomFlashcard
+    );
   }
 
   ngOnDestroy(): void {
