@@ -60,7 +60,8 @@ export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestro
 
   handleRemoveFav() {
     this.favService.removeFlashcardFromFavorites(
-      this.flashcardsService.currentRandomFlashcard
+      this.flashcardsService.currentRandomFlashcard,
+      this.category === "favorites"
     );
   }
 

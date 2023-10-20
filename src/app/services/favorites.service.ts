@@ -50,7 +50,7 @@ export class FavoritesService {
     this.favoritesUpdated.next(this.favoritesFlashcards);
   }
 
-  removeFlashcardFromFavorites(flashcard: Flashcard | null) {
+  removeFlashcardFromFavorites(flashcard: Flashcard | null, removingFromFavoritesPage?: boolean) {
     console.log('removeFlashcardFromFavorites')
     this.flashcardsService.isFlashcardFavorite = false;
     if (flashcard === null) {
@@ -62,6 +62,9 @@ export class FavoritesService {
       this.favoritesFlashcards.splice(index, 1);
       this.favoritesUpdated.next(this.favoritesFlashcards);
       this.setFavoritesToLocalStorage(this.favoritesFlashcards);
+    }
+    if (removingFromFavoritesPage) {
+      this.flashcardsService.getChoosedTopicFlashcards("favorites");
     }
   }
 
