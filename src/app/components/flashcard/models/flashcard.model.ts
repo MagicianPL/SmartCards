@@ -15,10 +15,7 @@ export class Flashcard {
         return this.answer;
     }
 
-    getFlashcardData(): {question: string, answer: string} {
-        return {
-            question: this.getQuestion(),
-            answer: this.getAnswer()
-        };
+    getFlashcardData(): Flashcard {
+        return this;
     }
 }

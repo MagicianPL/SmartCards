@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, Injector, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { angularFlashcardsData, cssFlashcardsData, javascriptFlashcardsData, reactFlashcardsData } from '../constants/flashcards';
 import { Flashcard } from '../components/flashcard/models/flashcard.model';
@@ -8,24 +8,24 @@ import { topicFlashcards } from '../components/flashcard/models/topicFlashcards.
 import { Router } from '@angular/router';
 import { angularFlashcards } from '../components/flashcard/models/angularFlashcards';
 import { cssFlashcards } from '../components/flashcard/models/cssFlashcards';
+import { favoriteFlashcards } from '../components/flashcard/models/favoritesFlashcards';
+import { FavoritesService } from './favorites.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FlashcardsService implements OnInit {
+export class FlashcardsService {
   flashcardIsFlipped = false;
   private javascriptFlashcards = new javascriptFlashcards(javascriptFlashcardsData);
   private reactFlashcards = new reactFlashcards(reactFlashcardsData);
-  private choosedTopicFlashcards: topicFlashcards;
+  choosedTopicFlashcards: topicFlashcards;
+  isFlashcardFavorite = false;
   getFlashcard = new Subject<Flashcard>();
   flippedFlashcard = new Subject<boolean>();
+  isFlashcardFavoriteUpdate = new Subject<boolean>();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private injector: Injector) {
     this.choosedTopicFlashcards = new reactFlashcards(reactFlashcardsData);
-  }
-
-  ngOnInit(): void {
-    this.flippedFlashcard.next(this.flashcardIsFlipped);
   }
 
   getChoosedTopicFlashcards(category: string) {
@@ -44,6 +44,11 @@ export class FlashcardsService implements OnInit {
       }
       case "angular": {
         this.choosedTopicFlashcards = new angularFlashcards(angularFlashcardsData);
+        break;
+      }
+      case "favorites": {
+        const favService = this.injector.get(FavoritesService);
+        this.choosedTopicFlashcards = new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite");
         break;
       }
       default: {
@@ -68,6 +73,7 @@ export class FlashcardsService implements OnInit {
   }
 
   getRandomFlashCard() {
+    console.log('getRandomFlashCard from base service')
     const randomFlashcard = this.choosedTopicFlashcards.getRandomFlashcard();
     if (this.flashcardIsFlipped) {
       this.flashcardIsFlipped = false;
@@ -78,6 +84,7 @@ export class FlashcardsService implements OnInit {
       return;
     }
 
+    console.log('Before calling next')
     this.getFlashcard.next(randomFlashcard);
   }
 

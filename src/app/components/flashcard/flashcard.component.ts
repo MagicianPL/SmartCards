@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { FavoritesService } from 'src/app/services/favorites.service';
 import { FlashcardsService } from '../../services/flashcards.service';
 import { Flashcard } from './models/flashcard.model';
 
@@ -17,13 +18,19 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   getFlashcardSubscription: Subscription | null = null;
   isFlippedSubscription: Subscription | null = null;
   category: string | null = "";
+  addToFavBtnClickSubscription: Subscription | null = null;
 
-  constructor(private flashcardsService: FlashcardsService, private route: ActivatedRoute) {}
+  constructor(
+    private flashcardsService: FlashcardsService,
+    private route: ActivatedRoute,
+    private favService: FavoritesService
+    ) {}
 
   ngOnInit(): void {
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
     .subscribe(
       (flashcard: Flashcard) => {
+        this.randomFlashcard = flashcard;
         this.question = flashcard.getQuestion();
         this.answer = flashcard.getAnswer();
       }
@@ -38,6 +45,11 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     .subscribe((params: ParamMap) => this.category = params.get('category'));
 
     this.flashcardsService.getChoosedTopicFlashcards(this.category || "");
+
+    this.addToFavBtnClickSubscription = this.favService.addToFavoriteClicked
+    .subscribe(() => {
+        this.favService.addFlashcardToFavorites(this.randomFlashcard);
+    });
   }
 
   toggleFlip(): void {
@@ -47,6 +59,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.getFlashcardSubscription?.unsubscribe();
     this.isFlippedSubscription?.unsubscribe();
+    this.addToFavBtnClickSubscription?.unsubscribe();
   }
 
 }

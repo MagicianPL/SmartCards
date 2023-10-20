@@ -1,4 +1,5 @@
 <div class="wrapper">
+    <button (click)="handleAddToFav()">{{isFlashcardFavorite ? 'ADDED' : 'ADD TO FAV'}}</button>
     <app-flashcard></app-flashcard>
     <button (click)="handleDraw()">DRAW</button>
 </div>
