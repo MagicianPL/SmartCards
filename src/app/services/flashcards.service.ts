@@ -21,7 +21,7 @@ export class FlashcardsService {
   choosedTopicFlashcards: topicFlashcards;
   currentRandomFlashcard: Flashcard | null = null;
   isFlashcardFavorite = false;
-  getFlashcard = new Subject<Flashcard>();
+  getFlashcard = new Subject<Flashcard | null>();
   flippedFlashcard = new Subject<boolean>();
   isFlashcardFavoriteUpdate = new Subject<boolean>();
 
@@ -75,11 +75,11 @@ export class FlashcardsService {
 
   getRandomFlashCard() {
     console.log('getRandomFlashCard from base service')
-    let randomFlashcard: Flashcard;
+    let randomFlashcard: Flashcard | null;
     //It prevents to draw same flashcard
     do {
       randomFlashcard = this.choosedTopicFlashcards.getRandomFlashcard();
-    } while (this.currentRandomFlashcard && this.currentRandomFlashcard.getQuestion() === randomFlashcard.getQuestion());
+    } while (this.choosedTopicFlashcards.getFlashcards().length > 1 && this.currentRandomFlashcard && this.currentRandomFlashcard.getQuestion() === randomFlashcard?.getQuestion());
 
     this.currentRandomFlashcard = randomFlashcard;
     if (this.flashcardIsFlipped) {

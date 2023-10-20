@@ -13,8 +13,8 @@ import { Flashcard } from './models/flashcard.model';
 export class FlashcardComponent implements OnInit, OnDestroy {
   isFlipped = false;
   randomFlashcard: Flashcard | null = null;
-  question: string = "";
-  answer: string = "";
+  question: string | undefined = "";
+  answer: string | undefined = "";
   getFlashcardSubscription: Subscription | null = null;
   isFlippedSubscription: Subscription | null = null;
   category: string | null = "";
@@ -27,12 +27,17 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit(): void {
+    this.randomFlashcard = this.flashcardsService.currentRandomFlashcard;
+    this.question = this.randomFlashcard?.getQuestion();
+    this.answer = this.randomFlashcard?.getAnswer();
+
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
     .subscribe(
-      (flashcard: Flashcard) => {
+      (flashcard: Flashcard | null) => {
+        console.log('flashcard FROM INIT', flashcard)
         this.randomFlashcard = flashcard;
-        this.question = flashcard.getQuestion();
-        this.answer = flashcard.getAnswer();
+        this.question = flashcard?.getQuestion();
+        this.answer = flashcard?.getAnswer();
       }
     );
 
@@ -43,8 +48,6 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
     this.route.paramMap
     .subscribe((params: ParamMap) => this.category = params.get('category'));
-
-    this.flashcardsService.getChoosedTopicFlashcards(this.category || "");
 
     this.addToFavBtnClickSubscription = this.favService.addToFavoriteClicked
     .subscribe(() => {

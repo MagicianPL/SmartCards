@@ -37,6 +37,12 @@ button:hover {
     color: #1F3A93;
 }
 
+.emptyInfo {
+    color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     .innerWrapper {
         width: 100%;

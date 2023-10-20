@@ -18,7 +18,7 @@ export class FavoritesService {
 
     //Everytime when a new flashcard is drew, we shoud check if this card is favorite already
     this.flashcardsService.getFlashcard
-    .subscribe((flashcard: Flashcard) => {
+    .subscribe((flashcard: Flashcard | null) => {
       console.log('from fav service!!!')
       const isFavorite = this.flashcardIsFavoriteChecking(flashcard);
       console.log('isFavorite', isFavorite)
@@ -65,7 +65,8 @@ export class FavoritesService {
     }
   }
 
-  flashcardIsFavoriteChecking(flashcard: Flashcard): boolean {
+  flashcardIsFavoriteChecking(flashcard: Flashcard | null): boolean {
+    if (flashcard === null) return false;
     const question = flashcard.getQuestion();
     console.log('question', question)
     console.log('!!!!!', this.favoritesFlashcards)

@@ -11,7 +11,8 @@ export class topicFlashcards {
         return this.flashcards;
     }
 
-    getRandomFlashcard(): Flashcard {
+    getRandomFlashcard(): Flashcard | null {
+        if (this.flashcards.length === 0) return null;
         if (this.flashcards.length === 1) {
             return this.flashcards[0];
         }
