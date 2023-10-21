@@ -50,6 +50,7 @@ export class FlashcardsService {
       case "favorites": {
         const favService = this.injector.get(FavoritesService);
         this.choosedTopicFlashcards = new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite");
+        console.log(new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite"))
         break;
       }
       default: {

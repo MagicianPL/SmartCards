@@ -15,6 +15,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   randomFlashcard: Flashcard | null = null;
   question: string | undefined = "";
   answer: string | undefined = "";
+  learnMoreUrl: string | undefined;
   getFlashcardSubscription: Subscription | null = null;
   isFlippedSubscription: Subscription | null = null;
   category: string | null = "";
@@ -30,6 +31,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     this.randomFlashcard = this.flashcardsService.currentRandomFlashcard;
     this.question = this.randomFlashcard?.getQuestion();
     this.answer = this.randomFlashcard?.getAnswer();
+    this.learnMoreUrl = this.randomFlashcard?.getLearnMoreUrl();
 
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
     .subscribe(
@@ -38,6 +40,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
         this.randomFlashcard = flashcard;
         this.question = flashcard?.getQuestion();
         this.answer = flashcard?.getAnswer();
+        this.learnMoreUrl = flashcard?.getLearnMoreUrl();
       }
     );
 

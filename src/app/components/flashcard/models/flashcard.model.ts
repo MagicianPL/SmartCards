@@ -1,10 +1,12 @@
 export class Flashcard {
     private question: string;
     private answer: string;
+    private learnMore?: string;
 
-    constructor(question: string, answer: string) {
+    constructor(question: string, answer: string, learnMore?: string, xxx?: string) {
         this.question = question;
         this.answer = answer;
+        this.learnMore = learnMore;
     }
 
     getQuestion(): string {
@@ -13,6 +15,10 @@ export class Flashcard {
 
     getAnswer(): string {
         return this.answer;
+    }
+
+    getLearnMoreUrl(): string | undefined {
+        return this.learnMore;
     }
 
     getFlashcardData(): Flashcard {
