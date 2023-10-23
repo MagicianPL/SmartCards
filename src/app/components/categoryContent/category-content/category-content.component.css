@@ -5,6 +5,15 @@
     gap: 20px;
 }
 
+.actions {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 button {
     padding: 10px;
     border-radius: 6px;
@@ -30,7 +39,7 @@ button:hover {
     font-size: 24px;
     cursor: pointer;
     display: block;
-    margin: 0 20px 20px auto;
+    margin-left: 20px;
 }
 
 .filled {
@@ -41,6 +50,19 @@ button:hover {
     color: white;
     font-size: 26px;
     text-align: center;
+}
+
+.addCustomBtn {
+    opacity: 0.5;
+    margin: 0;
+}
+
+.addCustomBtn:hover {
+    opacity: 1;
+}
+
+.single {
+    font-size: 22px;
 }
 
 @media (max-width: 600px) {

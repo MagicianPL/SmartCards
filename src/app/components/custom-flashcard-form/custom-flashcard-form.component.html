@@ -1,23 +1,22 @@
 <div class="wrapper">
-    <form>
+    <div class="innerWrapper">
+        <a routerLink="../" class="backToFav">Back</a>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="inputWrapper">
             <label for="question">Question</label>
-            <textarea
-            id="question"
-            placeholder="Max. 264 characters"></textarea>
+            <textarea id="question" placeholder="Max. 210 characters" formControlName="question" maxlength="210"
+                [ngClass]="{'invalid': form.get('question')?.invalid && form.get('question')?.touched}"></textarea>
         </div>
         <div class="inputWrapper">
             <label for="answer">Answer</label>
-            <textarea
-            id="answer"
-            placeholder="Max. 264 characters"></textarea>
+            <textarea id="answer" placeholder="Max. 210 characters" formControlName="answer" maxlength="210"
+                [ngClass]="{'invalid': form.get('answer')?.invalid && form.get('answer')?.touched}"></textarea>
         </div>
         <div class="inputWrapper">
             <label for="learnMore">Learn more URL Adress (optional)</label>
-            <input
-            id="learnMore"
-            placeholder="Provide URL or leave it empty" />
+            <input id="learnMore" placeholder="Provide URL or leave it empty" formControlName="learnMore" />
         </div>
-        <button class="addCustomBtn">Add to favorites</button>
+        <button class="addCustomBtn" type="submit" [disabled]="!form.valid">Add to favorites</button>
     </form>
 </div>

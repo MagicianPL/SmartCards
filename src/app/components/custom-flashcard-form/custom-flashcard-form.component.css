@@ -1,11 +1,23 @@
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 40px;
 }
 
-form {
+@media (max-width: 900px) {
+    .wrapper {
+        padding-left: 0;
+    }
+}
+
+form, .innerWrapper {
     width: 100%;
     max-width: 600px;
+}
+
+.innerWrapper {
+    display: flex;
 }
 
 .inputWrapper {
@@ -47,4 +59,24 @@ input {
 .addCustomBtn {
     border: none;
     background-color: transparent;
+}
+
+@media (max-width: 450px) {
+    .addCustomBtn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.addCustomBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.invalid {
+    border: 1px solid yellow;
+}
+
+.backToFav {
+    margin-bottom: 20px;
 }

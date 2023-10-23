@@ -39,11 +39,12 @@ export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestro
       });
 
     this.route.paramMap
-      .subscribe((params: ParamMap) => this.category = params.get('category'));
-
-    if (this.category) {
-      this.flashcardsService.getChoosedTopicFlashcards(this.category)
-    }
+      .subscribe((params: ParamMap) => {
+        this.category = params.get('category');
+        if (this.category) {
+          this.flashcardsService.getChoosedTopicFlashcards(this.category)
+        }
+      });
   }
 
   ngAfterViewInit() {

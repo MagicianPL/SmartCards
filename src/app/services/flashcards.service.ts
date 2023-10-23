@@ -55,7 +55,7 @@ export class FlashcardsService {
       }
       default: {
         //If we don't have matching category, redirect to homepage
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('');
       }
     }
 

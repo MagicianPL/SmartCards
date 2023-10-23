@@ -12,6 +12,7 @@ import { InfoComponent } from './components/info/info.component';
 import { CategoryContentComponent } from './components/categoryContent/category-content/category-content.component';
 import { FooterComponent } from './components/footer/footer/footer.component';
 import { CustomFlashcardFormComponent } from './components/custom-flashcard-form/custom-flashcard-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +30,8 @@ import { CustomFlashcardFormComponent } from './components/custom-flashcard-form
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

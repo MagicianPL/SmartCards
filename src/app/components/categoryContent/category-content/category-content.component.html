@@ -1,10 +1,15 @@
 <div class="wrapper">
     <p *ngIf="!currentFlashcard" class="emptyInfo">Sorry, no flashcards available in this category.</p>
+    <a *ngIf="category === 'favorites' && !currentFlashcard" routerLink="custom" class="addCustomBtn single">- Add custom -</a>
+
     <div *ngIf="currentFlashcard" class="innerWrapper">
-        <button class="favBtn" *ngIf="!isFlashcardFavorite" (click)="handleAddToFav()"><i
-                class="fa-regular fa-heart"></i></button>
-        <button class="favBtn filled" *ngIf="isFlashcardFavorite" (click)="handleRemoveFav()"><i
-                class="fa-solid fa-heart"></i></button>
+        <div class="actions">
+            <a *ngIf="category === 'favorites'" routerLink="custom" class="addCustomBtn">- Add custom -</a>
+            <button class="favBtn" *ngIf="!isFlashcardFavorite" (click)="handleAddToFav()" title="Add to favorites"><i
+                    class="fa-regular fa-heart"></i></button>
+            <button class="favBtn filled" *ngIf="isFlashcardFavorite" (click)="handleRemoveFav()" title="Remove from favorites"><i
+                    class="fa-solid fa-heart"></i></button>
+        </div>
         <app-flashcard></app-flashcard>
     </div>
     <button *ngIf="currentFlashcard" (click)="handleDraw()">DRAW</button>
