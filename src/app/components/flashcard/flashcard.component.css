@@ -46,6 +46,27 @@
     cursor: pointer;
 }
 
+.learnBtnWrapper {
+    display: flex;
+    height: 33px;
+}
+
+.learnBtn {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin: 10px auto 0 10px;
+    color: #1F3A93;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.learnBtn:hover {
+    opacity: 0.7;
+}
+
 @media (max-width: 450px) {
     .front,
     .back {
