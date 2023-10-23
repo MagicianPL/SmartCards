@@ -8,7 +8,7 @@
         </div>
     </div>
 </div>
-<div class="learnBtnWrapper">
+<div class="actionsWrapper">
     <a *ngIf="learnMoreUrl" [href]="learnMoreUrl" target="_blank" class="learnBtn">Learn more</a>
+    <button *ngIf="currentTasksObject" class="practiceBtn"><i class="fa-solid fa-keyboard"></i></button>
 </div>
-<!-- <button (click)="handleWithNext()">NEXT</button> -->

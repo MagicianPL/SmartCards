@@ -10,7 +10,7 @@
             <button class="favBtn filled" *ngIf="isFlashcardFavorite" (click)="handleRemoveFav()" title="Remove from favorites"><i
                     class="fa-solid fa-heart"></i></button>
         </div>
-        <app-flashcard></app-flashcard>
+        <app-flashcard [currentTasksObject]="flashcardTasksObject"></app-flashcard>
     </div>
     <button *ngIf="currentFlashcard" (click)="handleDraw()">DRAW</button>
 </div>

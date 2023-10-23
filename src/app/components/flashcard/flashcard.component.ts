@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites.service';
@@ -11,6 +11,8 @@ import { Flashcard } from './models/flashcard.model';
   styleUrls: ['./flashcard.component.css']
 })
 export class FlashcardComponent implements OnInit, OnDestroy {
+  @Input('currentTasksObject') currentTasksObject: any;
+  
   isFlipped = false;
   randomFlashcard: Flashcard | null = null;
   question: string | undefined = "";

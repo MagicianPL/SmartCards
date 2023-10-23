@@ -46,9 +46,28 @@
     cursor: pointer;
 }
 
-.learnBtnWrapper {
+.actionsWrapper {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 33px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 55px;
+    flex-wrap: wrap;
+}
+
+.learnBtn {
+    margin: 0;
+}
+
+.practiceBtn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 @media (max-width: 450px) {

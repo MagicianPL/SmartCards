@@ -41,6 +41,7 @@ export class FlashcardsService {
       }
       case "react": {
         this.choosedTopicFlashcards = new reactFlashcards(reactFlashcardsData);
+        console.log(this.choosedTopicFlashcards)
         break;
       }
       case "angular": {
@@ -93,6 +94,7 @@ export class FlashcardsService {
     }
 
     console.log('Before calling next')
+    console.log('This is sending: ', randomFlashcard)
     this.getFlashcard.next(randomFlashcard);
   }
 

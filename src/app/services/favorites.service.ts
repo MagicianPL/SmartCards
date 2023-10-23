@@ -12,16 +12,13 @@ export class FavoritesService {
   addToFavoriteClicked = new Subject<any>();
 
   constructor(private flashcardsService: FlashcardsService) { 
-    console.log('FAV SERVICE ON INIT')
     this.favoritesFlashcards = this.getFavoritesFromLocalStrorage();
     this.favoritesUpdated.next(this.favoritesFlashcards);
 
     //Everytime when a new flashcard is drew, we shoud check if this card is favorite already
     this.flashcardsService.getFlashcard
     .subscribe((flashcard: Flashcard | null) => {
-      console.log('from fav service!!!')
       const isFavorite = this.flashcardIsFavoriteChecking(flashcard);
-      console.log('isFavorite', isFavorite)
       
       this.flashcardsService.isFlashcardFavorite = isFavorite;
       this.flashcardsService.isFlashcardFavoriteUpdate.next(isFavorite);
@@ -30,7 +27,6 @@ export class FavoritesService {
 
   private getFavoritesFromLocalStrorage(): Flashcard[] {
     const favoritesFromLocalStorage: Flashcard[] = JSON.parse(localStorage.getItem("favoritesFlashcards") || '[]');
-    console.log('favoritesFromLocalStorage', favoritesFromLocalStorage)
     return favoritesFromLocalStorage;
   }
 
@@ -71,8 +67,6 @@ export class FavoritesService {
   flashcardIsFavoriteChecking(flashcard: Flashcard | null): boolean {
     if (flashcard === null) return false;
     const question = flashcard.getQuestion();
-    console.log('question', question)
-    console.log('!!!!!', this.favoritesFlashcards)
     const answer = flashcard.getAnswer();
     const isFavorite = this.favoritesFlashcards.find((favFlashcard: any) => favFlashcard.question === question && favFlashcard.answer === answer);
     if (!isFavorite) return false;
