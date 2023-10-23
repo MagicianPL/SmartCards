@@ -1,0 +1,50 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.inputWrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 26px;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+textarea, input {
+    width: 100%;
+    resize: none;
+    height: 50px;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #1F3A93;
+    color: white;
+    font-size: 18px;
+}
+
+input {
+    height: initial;
+    border: transparent;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
+.addCustomBtn {
+    border: none;
+    background-color: transparent;
+}

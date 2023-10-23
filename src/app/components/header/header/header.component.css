@@ -15,6 +15,7 @@ h1 {
     display: flex;
     animation: rotate 0.7s forwards;
     animation-delay: 1.3s;
+    cursor: pointer;
 }
 
 h1 .right {
