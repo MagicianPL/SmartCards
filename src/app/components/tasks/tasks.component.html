@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <div class="innerWrapper">
+        <h2 class="show">{{title}}</h2>
+        <div class="tasks show">
+            <p *ngFor="let task of tasks; let i = index">{{i + 1}}. {{task}}</p>
+        </div>
+    </div>
+</div>

@@ -74,6 +74,6 @@ export class FavoritesService {
   }
 
   getFavoritesFlashcards(): Flashcard[] {
-    return this.favoritesFlashcards.map((card: any) => new Flashcard(card.question, card.answer, card.learnMore));
+    return this.favoritesFlashcards.map((card: any) => new Flashcard(card.question, card.answer, card.learnMore, card.tasksPath));
   }
 }

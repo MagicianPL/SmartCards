@@ -24,6 +24,7 @@ export class FlashcardsService {
   getFlashcard = new Subject<Flashcard | null>();
   flippedFlashcard = new Subject<boolean>();
   isFlashcardFavoriteUpdate = new Subject<boolean>();
+  flashcardTasksObject: any;
 
   constructor(private router: Router, private injector: Injector) {
     this.choosedTopicFlashcards = new reactFlashcards(reactFlashcardsData);
@@ -51,6 +52,7 @@ export class FlashcardsService {
       case "favorites": {
         const favService = this.injector.get(FavoritesService);
         this.choosedTopicFlashcards = new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite");
+        console.log('choosedTopicFlashcards', this.choosedTopicFlashcards)
         console.log(new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite"))
         break;
       }
@@ -84,6 +86,8 @@ export class FlashcardsService {
     } while (this.choosedTopicFlashcards.getFlashcards().length > 1 && this.currentRandomFlashcard && this.currentRandomFlashcard.getQuestion() === randomFlashcard?.getQuestion());
 
     this.currentRandomFlashcard = randomFlashcard;
+    this.flashcardTasksObject = randomFlashcard?.getTaskObject();
+    
     if (this.flashcardIsFlipped) {
       this.flashcardIsFlipped = false;
       this.flippedFlashcard.next(this.flashcardIsFlipped);

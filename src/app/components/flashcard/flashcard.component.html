@@ -10,5 +10,5 @@
 </div>
 <div class="actionsWrapper">
     <a *ngIf="learnMoreUrl" [href]="learnMoreUrl" target="_blank" class="learnBtn">Learn more</a>
-    <button *ngIf="currentTasksObject" class="practiceBtn"><i class="fa-solid fa-keyboard"></i></button>
+    <button *ngIf="currentTasksObject" (click)="handlePracticeClick()" class="practiceBtn" title="Practice"><i class="fa-solid fa-keyboard"></i></button>
 </div>

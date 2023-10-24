@@ -13,6 +13,7 @@ import { CategoryContentComponent } from './components/categoryContent/category-
 import { FooterComponent } from './components/footer/footer/footer.component';
 import { CustomFlashcardFormComponent } from './components/custom-flashcard-form/custom-flashcard-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InfoComponent,
     CategoryContentComponent,
     FooterComponent,
-    CustomFlashcardFormComponent
+    CustomFlashcardFormComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,

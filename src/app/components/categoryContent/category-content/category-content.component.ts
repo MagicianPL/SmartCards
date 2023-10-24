@@ -42,7 +42,7 @@ export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestro
       .subscribe((flashcard: Flashcard | null) => {
         console.log('flashcard RECEIVED', flashcard)
         this.currentFlashcard = flashcard;
-        this.flashcardTasksObject = this.currentFlashcard?.getTaskObject();
+        this.flashcardTasksObject = this.flashcardsService.flashcardTasksObject;
         console.log('Task OBJ', this.flashcardTasksObject)
       });
 

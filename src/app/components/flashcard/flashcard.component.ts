@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { FlashcardsService } from '../../services/flashcards.service';
@@ -12,7 +12,7 @@ import { Flashcard } from './models/flashcard.model';
 })
 export class FlashcardComponent implements OnInit, OnDestroy {
   @Input('currentTasksObject') currentTasksObject: any;
-  
+
   isFlipped = false;
   randomFlashcard: Flashcard | null = null;
   question: string | undefined = "";
@@ -26,14 +26,15 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   constructor(
     private flashcardsService: FlashcardsService,
     private route: ActivatedRoute,
-    private favService: FavoritesService
+    private favService: FavoritesService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
     this.randomFlashcard = this.flashcardsService.currentRandomFlashcard;
     this.question = this.randomFlashcard?.getQuestion();
     this.answer = this.randomFlashcard?.getAnswer();
-    this.learnMoreUrl = this.randomFlashcard?.getLearnMoreUrl();
+    this.learnMoreUrl = this.getCorrectedUrl(this.randomFlashcard?.getLearnMoreUrl());
 
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
     .subscribe(
@@ -42,7 +43,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
         this.randomFlashcard = flashcard;
         this.question = flashcard?.getQuestion();
         this.answer = flashcard?.getAnswer();
-        this.learnMoreUrl = flashcard?.getLearnMoreUrl();
+        this.learnMoreUrl = this.getCorrectedUrl(flashcard?.getLearnMoreUrl());
       }
     );
 
@@ -62,6 +63,21 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
   toggleFlip(): void {
     this.flashcardsService.handleFlip();
+  }
+
+  handlePracticeClick() {
+    console.log('handlePracticeClick')
+    console.log(`tasks/react/${this.currentTasksObject.name}`)
+    this.router.navigateByUrl(`tasks/${this.currentTasksObject.categoryForUrl}/${this.currentTasksObject.name}`)
+  }
+
+  getCorrectedUrl(url: string | undefined): string | undefined {
+    if (!url) return undefined;
+
+    if (url?.startsWith('http://') || url?.startsWith('https://')) {
+      return url;
+    }
+    return 'https://' + url;
   }
 
   ngOnDestroy(): void {
