@@ -47,7 +47,6 @@ export class FavoritesService {
   }
 
   removeFlashcardFromFavorites(flashcard: Flashcard | null, removingFromFavoritesPage?: boolean) {
-    console.log('removeFlashcardFromFavorites')
     this.flashcardsService.isFlashcardFavorite = false;
     if (flashcard === null) {
       return;

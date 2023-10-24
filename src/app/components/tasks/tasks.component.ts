@@ -40,7 +40,6 @@ export class TasksComponent implements OnInit {
       // @ts-ignore
       const categoryTaskObjects = tasksConstant[category];
       if (categoryTaskObjects && taskName) {
-        console.log('categoryTaskObjects', categoryTaskObjects)
         tasksObject = findTaskByName(taskName);
         this.tasks = tasksObject?.tasks;
         this.title = tasksObject?.name;

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faArrowLeft, faRotate } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-info',
@@ -7,6 +6,4 @@ import { faArrowLeft, faRotate } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent {
-  arrowLeft = faArrowLeft;
-  rotate = faRotate;
 }

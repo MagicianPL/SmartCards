@@ -22,10 +22,6 @@ export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestro
   constructor(private flashcardsService: FlashcardsService, private favService: FavoritesService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log("CURRENT FLASHCARD", this.currentFlashcard)
-    console.log("!!!!!!!!!!!!!!", this.currentFlashcard?.getTaskObject());
-    console.log("!!!!!!!!!!!!!!", this.currentFlashcard?.getFlashcardData());
-
     this.isFlashcardFavorite = this.flashcardsService.isFlashcardFavorite;
 
     this.favoritesUpdatedSubscription = this.favService.favoritesUpdated
@@ -40,10 +36,8 @@ export class CategoryContentComponent implements OnInit, AfterViewInit, OnDestro
 
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
       .subscribe((flashcard: Flashcard | null) => {
-        console.log('flashcard RECEIVED', flashcard)
         this.currentFlashcard = flashcard;
         this.flashcardTasksObject = this.flashcardsService.flashcardTasksObject;
-        console.log('Task OBJ', this.flashcardTasksObject)
       });
 
     this.route.paramMap

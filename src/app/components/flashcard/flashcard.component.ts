@@ -39,7 +39,6 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     this.getFlashcardSubscription = this.flashcardsService.getFlashcard
     .subscribe(
       (flashcard: Flashcard | null) => {
-        console.log('flashcard FROM INIT', flashcard)
         this.randomFlashcard = flashcard;
         this.question = flashcard?.getQuestion();
         this.answer = flashcard?.getAnswer();
@@ -66,8 +65,6 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   }
 
   handlePracticeClick() {
-    console.log('handlePracticeClick')
-    console.log(`tasks/react/${this.currentTasksObject.name}`)
     this.router.navigateByUrl(`tasks/${this.currentTasksObject.categoryForUrl}/${this.currentTasksObject.name}`)
   }
 

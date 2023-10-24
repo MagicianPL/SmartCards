@@ -23,18 +23,24 @@
 
 .wrapper > div > * {
     text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.3);
+    text-shadow: none;
     text-align: center;
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.3);
 }
 
 .topInfo {
     display: none;
 }
 
-fa-icon {
+i {
     display: block;
     opacity: 0;
     transform: scale(0.3);
     animation: iconsAnimation 0.5s forwards;
+}
+
+i::before {
+    text-shadow: none;
 }
 
 @media (max-width: 900px) {

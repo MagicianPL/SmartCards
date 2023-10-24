@@ -42,7 +42,6 @@ export class FlashcardsService {
       }
       case "react": {
         this.choosedTopicFlashcards = new reactFlashcards(reactFlashcardsData);
-        console.log(this.choosedTopicFlashcards)
         break;
       }
       case "angular": {
@@ -52,8 +51,6 @@ export class FlashcardsService {
       case "favorites": {
         const favService = this.injector.get(FavoritesService);
         this.choosedTopicFlashcards = new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite");
-        console.log('choosedTopicFlashcards', this.choosedTopicFlashcards)
-        console.log(new favoriteFlashcards(favService.getFavoritesFlashcards(), "Favorite"))
         break;
       }
       default: {
@@ -78,7 +75,6 @@ export class FlashcardsService {
   }
 
   getRandomFlashCard() {
-    console.log('getRandomFlashCard from base service')
     let randomFlashcard: Flashcard | null;
     //It prevents to draw same flashcard
     do {
@@ -97,8 +93,6 @@ export class FlashcardsService {
       return;
     }
 
-    console.log('Before calling next')
-    console.log('This is sending: ', randomFlashcard)
     this.getFlashcard.next(randomFlashcard);
   }
 
